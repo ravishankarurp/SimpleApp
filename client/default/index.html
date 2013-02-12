@@ -17,15 +17,15 @@ App Structure:
   As much as possible, the app follows the MVC application pattern.
   There is one major difference though, and that is the View code is
   server-side (/ext/server/private/). When the App initialises, it makes an AJAX
-  call to get the View structure, which is then translated (with the help of 
-  /script/view/parser.js) before being passed in the Sencha Framework. 
+  call to get the View structure, which is then translated (with the help of
+  /script/view/parser.js) before being passed in the Sencha Framework.
   This allows for tweaking of the View layout post deployment of the App.
 
   The application code, or business logic is in the controllers
-  (/script/controller/). Each menu item has it's own controller, which the 
+  (/script/controller/). Each menu item has it's own controller, which the
   View has callbacks to.
 
-  There are a few Models used by the App (/script/model/) such as the 
+  There are a few Models used by the App (/script/model/) such as the
   Contact model. These models are defined using the Sencha model registration
   method (Ext.regModel)
 

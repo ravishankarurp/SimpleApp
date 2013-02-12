@@ -34,15 +34,19 @@ app = function () {
     },
     
     initialiseMenu: function (definition) {
-      inst.v.menuDef = app.v.parser.parseMenuDef(definition.menu);
+      // inst.v.menuDef = app.v.parser.parseMenuDef(definition.menu);
       
       // initialise the main View
-      inst.v.mainPanel = new app.v.main({
-        useTitleAsBackText: false
-      });
+      // inst.v.mainPanel = new app.v.main({
+      //         useTitleAsBackText: false
+      //       });
+	  
+	  inst.v.mainPanel = new app.v.ravi({
+		  useTitleAsBackText: false
+	  });
       
       // setup orientation callback
-      app.c.orientation.setup();
+      // app.c.orientation.setup();
     } 
   }; 
   
