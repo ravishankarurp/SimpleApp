@@ -1,7 +1,5 @@
 // Define the main Panel of the App
-Ext.define('app.v.ravi', {
-    extend: 'Ext.form.Panel',
-    xtype: 'main',
+app.v.ravi = Ext.extend(Ext.form.Panel, {
     requires: ['Ext.form.FieldSet'],
     config: {
         url: 'contact.js',
