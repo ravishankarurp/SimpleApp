@@ -42,7 +42,7 @@ app = function () {
       });
       
       // setup orientation callback
-      //app.c.orientation.setup();
+      app.c.orientation.setup();
     } 
   }; 
   
