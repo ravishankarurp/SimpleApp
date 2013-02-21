@@ -11,7 +11,7 @@ var temperature = {
 	 */
 	getFarenheitTemp : function(tempInCelsius) {
 		
-		$fh.log('debug','1');
+		$fh.log('debug 1','1');
 		
 		/**
 		 * Since SOAP calls are wrapped HTTP calls, in Javascript we have to wrap SOAP envelope manually or using a SOAP library in Javascript
