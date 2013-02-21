@@ -11,9 +11,7 @@ var temperature = {
 	 */
 	getFarenheitTemp : function(tempInCelsius) {
 		
-		$fh.log({
-		  message: '1'
-		});
+		$fh.log('debug','1');
 		
 		/**
 		 * Since SOAP calls are wrapped HTTP calls, in Javascript we have to wrap SOAP envelope manually or using a SOAP library in Javascript
@@ -41,21 +39,18 @@ var temperature = {
 
 		 //Feedhenry Web Call
 		var res= $fh.web(opt);
-		$fh.log({
-		  message: '2'
-		});
+
+		$fh.log('debug','2');
 		// getSOAPElement will return an xml object that exists in SOAP response
 		var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",res.body);
-		$fh.log({
-		  message: '3'
-		});
+
+		$fh.log('debug','3');
 		// construct final returned JSON object.
 		var rtnObj={
-			CelsiusToFahrenheitResult:xmlData.CelsiusToFahrenheitResult.toString();
-		};
-		$fh.log({
-		  message: '4'
-		});
+			CelsiusToFahrenheitResult:xmlData.CelsiusToFahrenheitResult.toString()
+		}
+		
+		$fh.log('debug','4');
 
 		return rtnObj;
 
