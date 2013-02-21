@@ -1,0 +1,12 @@
+{
+  "name": "fh-app",
+  "version": "0.1.0",
+  "dependencies" : {
+        "fh-nodeapp":"*",
+          "csv":"*",
+          "mocha":"1.8.1"
+  },
+    "scripts": {
+        "test": "make test"
+    }
+}
