@@ -30,9 +30,8 @@ Ext.define('SimpleApp.controller.MainController', {
 		
 		$fh.act({
 						act : 'getFarenheitTemp',
-						secure : false,
 						req : {
-							tempInCelsius:celsiusValue
+							'tempInCelsius':celsiusValue
 						}
 					}, function(res) {
 						alert(JSON.stringify(res));
