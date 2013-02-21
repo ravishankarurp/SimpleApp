@@ -27,7 +27,7 @@ function getFarenheitTemp(param,callback) {
 	'</soap:Envelope>';
 
 
-	var url=this.SOAPUrl;
+	var url="http://www.w3schools.com/webservices/tempconvert.asmx";
 	//Webcall paramters.
 	var opt={
 		url : url,
