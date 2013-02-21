@@ -21,11 +21,12 @@ function getFarenheitTemp(param,callback) {
 	'<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + 
 	' <soap:Body>' + 
 	'   <CelsiusToFahrenheit xmlns="http://tempuri.org/">' + 
-	'   <Celsius>'+tempInCelsius+'</Celsius>' +
+	'   <Celsius>'+param.tempInCelsius+'</Celsius>' +
 	'   </CelsiusToFahrenheit>' +
 	' </soap:Body>' + 
 	'</soap:Envelope>';
 
+	$fh.log('debug 1.1');
 
 	var url="http://www.w3schools.com/webservices/tempconvert.asmx";
 	//Webcall paramters.
@@ -38,6 +39,8 @@ function getFarenheitTemp(param,callback) {
 		period : 3600
 	 };
 
+	$fh.log('debug 1.2');
+	
 	 //Feedhenry Web Call
 	var res= $fh.web(opt);
 
