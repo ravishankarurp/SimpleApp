@@ -43,7 +43,7 @@ Ext.define('SimpleApp.controller.MainController', {
 						// }
 					},
 						function(code,errorprops,params) {
-							alert("Error happened. Please try again.");
+							alert("Error happened. Please try again. Code: "+code + "; errorprops: " + errorprops + "; params: " + params);
 					});
 		
 		console.log('Done...');
