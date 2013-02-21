@@ -27,7 +27,6 @@ Ext.define('SimpleApp.controller.MainController', {
 		//   message: 'Querying inserted record... '
 		// });
 		
-		loading(true);
 		
 		$fh.act({
 						act : 'getFarenheitTemp',
@@ -36,7 +35,6 @@ Ext.define('SimpleApp.controller.MainController', {
 							tempInCelsius:celsiusValue
 						}
 					}, function(res) {
-						loading(false);
 						alert(JSON.stringify(res));
 						// if (res.status==="OK"){
 							// alert("Request has been created!");
@@ -45,7 +43,6 @@ Ext.define('SimpleApp.controller.MainController', {
 						// }
 					},
 						function(code,errorprops,params) {
-							loading(false);
 							alert("Error happened. Please try again.");
 					});
 		

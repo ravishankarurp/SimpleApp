@@ -18,9 +18,9 @@ var temperature = {
 		' <soap:Body>' + 
 		'   <CelsiusToFahrenheit xmlns="http://tempuri.org/">' + 
 		'   <Celsius>string</Celsius>' +
-		'   </CelsiusToFahrenheit>'
+		'   </CelsiusToFahrenheit>' +
 		' </soap:Body>' + 
-		'</soap:Envelope>'
+		'</soap:Envelope>';
 
 
 		var url=this.SOAPUrl;
@@ -42,8 +42,8 @@ var temperature = {
 
 		// construct final returned JSON object.
 		var rtnObj={
-			CelsiusToFahrenheitResult:xmlData.CelsiusToFahrenheitResult.toString()
-		}
+			CelsiusToFahrenheitResult:xmlData.CelsiusToFahrenheitResult.toString();
+		};
 
 
 		return rtnObj;
