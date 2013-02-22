@@ -74,7 +74,7 @@ function getFarenheitTemp(param,callback) {
 		
 			console.log('debug 3 console. Returning ' + JSON.stringify(rtnObj));
 	
-			return callback(null, rtnObj);
+			callback(null, rtnObj);
 			
 		  }
 		});
