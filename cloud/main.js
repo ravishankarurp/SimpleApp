@@ -20,15 +20,6 @@ function getFarenheitTemp(param,callback) {
 	/**
 	 * Since SOAP calls are wrapped HTTP calls, in Javascript we have to wrap SOAP envelope manually or using a SOAP library in Javascript
 	 */
-	// var xmlContent = '<?xml version="1.0" encoding="utf-8"?>' + 
-	// '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + 
-	// ' <soap:Body>' + 
-	// '   <CelsiusToFahrenheit xmlns="http://tempuri.org/">' + 
-	// '   <Celsius>'+param.tempInCelsius+'</Celsius>' +
-	// '   </CelsiusToFahrenheit>' +
-	// ' </soap:Body>' + 
-	// '</soap:Envelope>';
-	
 	var xmlContent='<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
 	'<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+
   		'<SOAP-ENV:Body>'+
@@ -56,43 +47,43 @@ function getFarenheitTemp(param,callback) {
 	
 	// Feedhenry Web Call
 	var res= $fh.web(opt
-		, function(err, result) {
-		  if (err) {
-		    console.log("Error : " + err.message);
-		  } else {
-		    var data = result.body;
-		    console.log("Response is " + data);
-			
-			// getSOAPElement will return an xml object that exists in SOAP response
-			var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",result.body);
-
-			console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
-			// construct final returned JSON object.
-			var rtnObj={
-				CelsiusToFahrenheitResult:xmlData.toString()
-			}
+		// , function(err, result) {
+		//   if (err) {
+		//     console.log("Error : " + err.message);
+		//   } else {
+		//     var data = result.body;
+		//     console.log("Response is " + data);
+		// 	
+		// 	// getSOAPElement will return an xml object that exists in SOAP response
+		// 	var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",result.body);
+		// 
+		// 	console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
+		// 	// construct final returned JSON object.
+		// 	var rtnObj={
+		// 		CelsiusToFahrenheitResult:xmlData.toString()
+		// 	}
+		// 
+		// 	console.log('debug 3 console. Returning ' + JSON.stringify(rtnObj));
+		// 	
+		// 	callback(null, rtnObj);
+		// 	
+		//   }
+		// }
+	);
 		
-			console.log('debug 3 console. Returning ' + JSON.stringify(rtnObj));
+		
+		// getSOAPElement will return an xml object that exists in SOAP response
+		var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",res.body);
+
+		console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
+		// construct final returned JSON object.
+		var rtnObj={
+			CelsiusToFahrenheitResult:xmlData.toString()
+		}
+		
+		console.log('debug 3 console. Returning ' + JSON.stringify(rtnObj));
 	
-			callback(null, rtnObj);
-			
-		  }
-		});
-	
-	// $fh.web({
-	//   url: "http://www.google.com",
-	//   method: "GET",
-	//   contentType: "text/html",
-	//   charset: "UTF-8",
-	//   period: 60000 //cache for 1 min
-	// }, function(err, result) {
-	//   if (err) {
-	//     console.log("Error : " + err.message);
-	//   } else {
-	//     var data = result.body;
-	//     console.log("Response is " + data);
-	//   }
-	// })
+		callback(null, rtnObj);
 
 }
 
