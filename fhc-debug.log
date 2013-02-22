@@ -6,7 +6,7 @@ silly config file /usr/local/etc/fhcrc
 silly Handling act request locally
 silly url /box/srv/1.1/act/apps/localguidplaceholder/getFarenheitTemp/localguidplaceholder
 silly act getFarenheitTemp
-silly params { tempInCelsius: 12,
+silly params { tempInCelsius: 46,
 silly params   __fh: 
 silly params    { cuid: 'BA9995B084604D86928D111F2C5FB4E8',
 silly params      appid: 'localguidplaceholder',
@@ -29,7 +29,7 @@ silly params      'accept-language': 'en-US,en;q=0.8',
 silly params      'accept-charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
 silly params      cookie: 'mock_uuid=BA9995B084604D86928D111F2C5FB4E8' } }
 ERR! ReferenceError: $fh is not defined
-ERR!     at Object.getFarenheitTemp (/Users/raviparupudi/Sites/GitHubWorkspace/SimpleApp/cloud/main.js:48:11)
+ERR!     at Object.getFarenheitTemp (/Users/raviparupudi/Sites/GitHubWorkspace/SimpleApp/cloud/main.js:57:11)
 ERR!     at IncomingMessage.LocalActHandler.handleRequest (/usr/local/lib/node_modules/fh-fhc/lib/local.js:401:22)
 ERR!     at IncomingMessage.EventEmitter.emit (events.js:93:17)
 ERR!     at IncomingMessage._emitEnd (http.js:366:10)
