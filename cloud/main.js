@@ -47,43 +47,29 @@ function getFarenheitTemp(param,callback) {
 	
 	// Feedhenry Web Call
 	var res= $fh.web(opt
-		// , function(err, result) {
-		//   if (err) {
-		//     console.log("Error : " + err.message);
-		//   } else {
-		//     var data = result.body;
-		//     console.log("Response is " + data);
-		// 	
-		// 	// getSOAPElement will return an xml object that exists in SOAP response
-		// 	var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",result.body);
-		// 
-		// 	console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
-		// 	// construct final returned JSON object.
-		// 	var rtnObj={
-		// 		CelsiusToFahrenheitResult:xmlData.toString()
-		// 	}
-		// 
-		// 	console.log('debug 3 console. Returning ' + JSON.stringify(rtnObj));
-		// 	
-		// 	callback(null, rtnObj);
-		// 	
-		//   }
-		// }
-	);
-		
-		
-		// getSOAPElement will return an xml object that exists in SOAP response
-		var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",res.body);
+		, function(err, result) {
+		  if (err) {
+		    console.log("Error : " + err.message);
+		  } else {
+		    var data = result.body;
+		    console.log("Response is " + data);
+			
+			// getSOAPElement will return an xml object that exists in SOAP response
+			var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",result.body);
 
-		console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
-		// construct final returned JSON object.
-		var rtnObj={
-			CelsiusToFahrenheitResult:xmlData.toString()
-		}
+			console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
+			// construct final returned JSON object.
+			var rtnObj={
+				CelsiusToFahrenheitResult:xmlData.toString()
+			}
 		
-		console.log('debug 3 console. Returning ' + JSON.stringify(rtnObj));
+			console.log('debug 3 console. Returning ' + JSON.stringify(rtnObj));
 	
-		callback(null, rtnObj);
+			callback(null, rtnObj);
+			
+		  }
+		});
+
 
 }
 
