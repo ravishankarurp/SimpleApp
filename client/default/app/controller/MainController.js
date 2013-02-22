@@ -38,7 +38,7 @@ Ext.define('SimpleApp.controller.MainController', {
 		console.log('xmlData='+xmlData);
 		Ext.getCmp('tempInFarenheitOutput').setValue(xmlData);
 		*/
-	
+		me=this;
 		
 		$fh.act({
 						act : 'getFarenheitTemp',
@@ -49,7 +49,7 @@ Ext.define('SimpleApp.controller.MainController', {
 						console.log(JSON.stringify(res));
 						
 						// getSOAPElement will return an xml object that exists in SOAP response
-						var xmlData=this.getSOAPElement("CelsiusToFahrenheitResult",res.CelsiusToFahrenheitResult);
+						var xmlData=me.getSOAPElement("CelsiusToFahrenheitResult",res.CelsiusToFahrenheitResult);
 
 						console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
 						
