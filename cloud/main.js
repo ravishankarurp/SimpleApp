@@ -69,7 +69,7 @@ function getFarenheitTemp(param,callback) {
 			console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
 			// construct final returned JSON object.
 			var rtnObj={
-				CelsiusToFahrenheitResult:result.body.toString()
+				CelsiusToFahrenheitResult:xmlData.toString()
 			}
 		
 			console.log('debug 3 console');
