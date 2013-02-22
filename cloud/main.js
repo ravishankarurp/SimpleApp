@@ -85,13 +85,13 @@ function getFarenheitTemp(param,callback) {
 
 	console.log('debug 3 console');
 	// construct final returned JSON object.
-	var rtnObj={
-		CelsiusToFahrenheitResult:data
-	}
+	// var rtnObj={
+	// 	CelsiusToFahrenheitResult:data
+	// }
 		
 	console.log('debug 4 console');
 	
-	return callback(null, rtnObj);
+	return callback(null, data);
 }
 
 exports.getFarenheitTemp=getFarenheitTemp;
