@@ -1,4 +1,5 @@
 var mortgage=require("./temperature");
+var util=require("./util");
 
 /**
  * Get Temp in Farenheit with user input in celsius
@@ -63,7 +64,7 @@ function getFarenheitTemp(param,callback) {
 		    console.log("Response is " + data);
 			
 			// getSOAPElement will return an xml object that exists in SOAP response
-			var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",result.body);
+			var xmlData=util.getSOAPElement("CelsiusToFahrenheitResponse",result.body);
 
 			console.log('debug 2 console. xmldata is '+JSON.stringify(xmldata));
 			// construct final returned JSON object.
