@@ -86,9 +86,9 @@ Ext.define('SimpleApp.controller.MainController', {
 	},
 	loading: function(isLoading){
 		if (isLoading){
-			$(".loading").show();
+			Ext.getCmp('.loading').show();
 		}else{
-			$(".loading").hide();
+			Ext.getCmp('.loading').hide();
 		}
 	}
 });
