@@ -81,12 +81,12 @@ function getFarenheitTemp(param,callback) {
 
 	console.log('debug 2 console');
 	// getSOAPElement will return an xml object that exists in SOAP response
-	var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",res.body);
+	//var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",res.body);
 
 	console.log('debug 3 console');
 	// construct final returned JSON object.
 	var rtnObj={
-		CelsiusToFahrenheitResult:xmlData.CelsiusToFahrenheitResult.toString()
+		CelsiusToFahrenheitResult:data.toString()
 	}
 		
 	console.log('debug 4 console');
