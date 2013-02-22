@@ -23,7 +23,7 @@ Ext.define('SimpleApp.view.Main', {
 				{
 					xtype:'numberfield',
 					id:'tempInCelsiusInput',
-					label: 'Temperature in Celsius',
+					label: 'Celsius',
 					placeholder:'0',
 					required:true
 				}
@@ -42,7 +42,21 @@ Ext.define('SimpleApp.view.Main', {
                 // handler: function() {
 //                     this.up('formpanel').submit();
 //                 }
-            }
+            },
+            {
+                xtype:'fieldset',
+				id:'targetform123',
+				title: 'Output',
+				items: [
+				{
+					xtype:'numberfield',
+					id:'tempInFarenheitOutput',
+					label: 'Farenheit',
+					placeholder:'0',
+					readOnly: true
+				}
+				]
+            },
         ]
     }
 });

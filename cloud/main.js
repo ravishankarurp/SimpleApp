@@ -45,6 +45,7 @@ function getFarenheitTemp(param,callback) {
 
 	console.log('debug 1.2');
 	
+	
 	// Feedhenry Web Call
 	var res= $fh.web(opt
 		, function(err, result) {
@@ -55,7 +56,7 @@ function getFarenheitTemp(param,callback) {
 		    console.log("Response is " + data);
 			
 			// getSOAPElement will return an xml object that exists in SOAP response
-			var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",result.body);
+			var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",result.CelsiusToFahrenheitResult.body);
 
 			console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
 			// construct final returned JSON object.
@@ -69,7 +70,8 @@ function getFarenheitTemp(param,callback) {
 			
 		  }
 		});
-
+		
+		
 
 }
 
