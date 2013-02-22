@@ -34,7 +34,8 @@ Ext.define('SimpleApp.controller.MainController', {
 							tempInCelsius:celsiusValue
 						}
 					}, function(res) {
-						alert(JSON.stringify(res));
+						console.log(JSON.stringify(res));
+						
 						// if (res.status==="OK"){
 							// alert("Request has been created!");
 						// }else{
@@ -42,7 +43,7 @@ Ext.define('SimpleApp.controller.MainController', {
 						// }
 					},
 						function(code,errorprops,params) {
-							alert("Error happened. Please try again. Code: "+code + "; errorprops: " + JSON.stringify(errorprops) + "; params: " + params);
+							alert("Error occurred. Please try again. Code: "+code + "; errorprops: " + JSON.stringify(errorprops) + "; params: " + params);
 					});
 		
 		console.log('Done...');
