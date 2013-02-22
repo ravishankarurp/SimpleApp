@@ -1,0 +1,12 @@
+info it worked if it ends with ok
+info using fhc@0.7.14-167
+info using node@v0.8.15
+silly config file /Users/raviparupudi/.fhcrc
+silly config file /usr/local/etc/fhcrc
+ERR! Error: getaddrinfo ENOENT
+ERR!     at errnoException (dns.js:31:11)
+ERR!     at Object.onanswer [as oncomplete] (dns.js:123:16)
+ERR! 
+ERR! System Darwin 12.2.1
+ERR! command "node" "/usr/local/bin/fhc" "target" "https://spargonet.appsdeveloper.o2.co.uk"
+verbose exit [ 1, true ]

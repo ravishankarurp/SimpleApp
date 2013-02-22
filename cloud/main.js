@@ -4,14 +4,16 @@ var mortgage=require("./temperature");
  * Get Temp in Farenheit with user input in celsius
  */
 function getFarenheitTemp(param,callback) {
-	$fh.log('debug. param: ' + JSON.stringify(param),'In main.js');
+	
+	console.log('hello ' + JSON.stringify(param));
+	// $fh.log('debug. param: ' + JSON.stringify(param),'In main.js');
 	
 	//$fh.log('Result: ' + JSON.stringify(temperature.getFarenheitTemp(param.tempInCelsius)));
 	
 	//callback(undefined, temperature.getFarenheitTemp(param.tempInCelsius));
 	//return callback(null, temperature.getFarenheitTemp(param.tempInCelsius));
 	
-	$fh.log('debug 1','1');
+	// $fh.log('debug 1','1');
 	console.log('debug 1 console');
 		
 	/**
@@ -26,37 +28,58 @@ function getFarenheitTemp(param,callback) {
 	' </soap:Body>' + 
 	'</soap:Envelope>';
 
-	$fh.log('debug 1.1');
+	// $fh.log('debug 1.1');
+	console.log('debug 1.1');
 
 	var url="http://www.w3schools.com/webservices/tempconvert.asmx";
 	//Webcall paramters.
 	var opt={
 		url : url,
-		method : "POST",
+		method : "GET",
 		charset : 'UTF-8',
 		contentType : 'text/xml',
 		body:xmlContent,
 		period : 3600
 	 };
 
-	$fh.log('debug 1.2');
+	console.log('debug 1.2');
 	
 	 //Feedhenry Web Call
-	var res= $fh.web(opt);
+	// var res= $fh.web(opt
+	// 	, function(err, result) {
+	// 	  if (err) {
+	// 	    console.log("Error : " + err.message);
+	// 	  } else {
+	// 	    var data = result.body;
+	// 	    console.log("Response is " + data);
+	// 	  }
+	// 	});
+	
+	$fh.web({
+	  url: "http://www.google.com",
+	  method: "GET",
+	  contentType: "text/html",
+	  charset: "UTF-8",
+	  period: 60000 //cache for 1 min
+	}, function(err, result) {
+	  if (err) {
+	    console.log("Error : " + err.message);
+	  } else {
+	    var data = result.body;
+	    console.log("Response is " + data);
+	  }
+	})
 
-	$fh.log('debug 2','2');
 	console.log('debug 2 console');
 	// getSOAPElement will return an xml object that exists in SOAP response
 	var xmlData=getSOAPElement("CelsiusToFahrenheitResponse",res.body);
 
-	$fh.log('debug 3','3');
 	console.log('debug 3 console');
 	// construct final returned JSON object.
 	var rtnObj={
 		CelsiusToFahrenheitResult:xmlData.CelsiusToFahrenheitResult.toString()
 	}
 		
-	$fh.log('debug 4','4');
 	console.log('debug 4 console');
 	
 	return callback(null, rtnObj);
