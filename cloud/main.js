@@ -107,7 +107,8 @@ function getSOAPElement(eleTagWithNS, SOAPRes) {
 	console.log('here 3');
 	var end_index = SOAPRes.indexOf(end_tag) + end_tag.length;
 	console.log('here 4');
-	var xmlData = new XML(SOAPRes.substring(start_index, end_index));
+	//var xmlData = new XML(SOAPRes.substring(start_index, end_index));
+	var xmlData = SOAPRes.substring(start_index, end_index);
 	console.log('here 5');
 	return xmlData;
 }
