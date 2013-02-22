@@ -49,7 +49,7 @@ Ext.define('SimpleApp.controller.MainController', {
 						console.log(JSON.stringify(res));
 						
 						// getSOAPElement will return an xml object that exists in SOAP response
-						var xmlData=getSOAPElement("CelsiusToFahrenheitResult",res.CelsiusToFahrenheitResult);
+						var xmlData=this.getSOAPElement("CelsiusToFahrenheitResult",res.CelsiusToFahrenheitResult);
 
 						console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
 						
