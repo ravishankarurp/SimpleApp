@@ -42,32 +42,32 @@ Ext.define('SimpleApp.controller.MainController', {
 		*/
 		me=this;
 		
-		$fh.act({
-						act : 'getFarenheitTemp',
-						req : {
-							tempInCelsius:celsiusValue
-						}
-					}, function(res) {
-						console.log(JSON.stringify(res));
-						
-						// getSOAPElement will return an xml object that exists in SOAP response
-						var xmlData=me.getSOAPElement("CelsiusToFahrenheitResult",res.CelsiusToFahrenheitResult);
-
-						console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
-						
-						Ext.getCmp('tempInFarenheitOutput').setValue(xmlData);
-						
-						me.loading(false);
-						// if (res.status==="OK"){
-							// alert("Request has been created!");
-						// }else{
-							// alert("Error happened. Please try again.");
-						// }
-					},
-						function(code,errorprops,params) {
-							alert("Error occurred. Please try again. Code: "+code + "; errorprops: " + JSON.stringify(errorprops) + "; params: " + params);
-					});
-		
+//		$fh.act({
+//						act : 'getFarenheitTemp',
+//						req : {
+//							tempInCelsius:celsiusValue
+//						}
+//					}, function(res) {
+//						console.log(JSON.stringify(res));
+//
+//						// getSOAPElement will return an xml object that exists in SOAP response
+//						var xmlData=me.getSOAPElement("CelsiusToFahrenheitResult",res.CelsiusToFahrenheitResult);
+//
+//						console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
+//
+//						Ext.getCmp('tempInFarenheitOutput').setValue(xmlData);
+//
+//						me.loading(false);
+//						// if (res.status==="OK"){
+//							// alert("Request has been created!");
+//						// }else{
+//							// alert("Error happened. Please try again.");
+//						// }
+//					},
+//						function(code,errorprops,params) {
+//							alert("Error occurred. Please try again. Code: "+code + "; errorprops: " + JSON.stringify(errorprops) + "; params: " + params);
+//					});
+//
 		console.log('Done...');
 	},
 	getSOAPElement: function(eleTagWithNS, SOAPRes) {
@@ -86,9 +86,11 @@ Ext.define('SimpleApp.controller.MainController', {
 	},
 	loading: function(isLoading){
 		if (isLoading){
-			Ext.getCmp('.loading').show();
+			Ext.get('loading').setVisible(true);
+            Ext.getCmp('tempInFarenheitOutput').setValue("");
+
 		}else{
-			Ext.getCmp('.loading').hide();
+			Ext.fly('loading').destroy();
 		}
 	}
 });
