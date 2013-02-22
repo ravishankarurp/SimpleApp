@@ -21,6 +21,8 @@ Ext.define('SimpleApp.controller.MainController', {
 	tempInCelsiusSubmitted: function(){
 		var celsiusValue=Ext.getCmp('tempInCelsiusInput').getValue();
 		
+		this.loading(true);
+		
 		console.log('Submitting Celsius temp. Value is ' + celsiusValue);
 		
 		// $fh.log({
@@ -54,6 +56,8 @@ Ext.define('SimpleApp.controller.MainController', {
 						console.log('debug 2 console. xmldata is '+JSON.stringify(xmlData));
 						
 						Ext.getCmp('tempInFarenheitOutput').setValue(xmlData);
+						
+						me.loading(false);
 						// if (res.status==="OK"){
 							// alert("Request has been created!");
 						// }else{
@@ -79,5 +83,12 @@ Ext.define('SimpleApp.controller.MainController', {
 		var xmlData = SOAPRes.substring(start_index, end_index);
 		console.log('here 5');
 		return xmlData;
+	},
+	loading: function(isLoading){
+		if (isLoading){
+			$(".loading").show();
+		}else{
+			$(".loading").hide();
+		}
 	}
 });
