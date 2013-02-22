@@ -19,14 +19,23 @@ function getFarenheitTemp(param,callback) {
 	/**
 	 * Since SOAP calls are wrapped HTTP calls, in Javascript we have to wrap SOAP envelope manually or using a SOAP library in Javascript
 	 */
-	var xmlContent = '<?xml version="1.0" encoding="utf-8"?>' + 
-	'<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + 
-	' <soap:Body>' + 
-	'   <CelsiusToFahrenheit>' + 
-	'   <Celsius>'+param.tempInCelsius+'</Celsius>' +
-	'   </CelsiusToFahrenheit>' +
-	' </soap:Body>' + 
-	'</soap:Envelope>';
+	// var xmlContent = '<?xml version="1.0" encoding="utf-8"?>' + 
+	// '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + 
+	// ' <soap:Body>' + 
+	// '   <CelsiusToFahrenheit xmlns="http://tempuri.org/">' + 
+	// '   <Celsius>'+param.tempInCelsius+'</Celsius>' +
+	// '   </CelsiusToFahrenheit>' +
+	// ' </soap:Body>' + 
+	// '</soap:Envelope>';
+	
+	var xmlContent='<?xml version="1.0" encoding="UTF-8" standalone="no"?>' +
+	'<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+
+  		'<SOAP-ENV:Body>'+
+			'<tns:CelsiusToFahrenheit xmlns:tns="http://tempuri.org/">' +
+ 		   	'<tns:Celsius>44</tns:Celsius>' +
+    		'</tns:CelsiusToFahrenheit>' +
+		'</SOAP-ENV:Body>' +
+	'</SOAP-ENV:Envelope>';
 
 	// $fh.log('debug 1.1');
 	console.log('debug 1.1');
@@ -35,7 +44,7 @@ function getFarenheitTemp(param,callback) {
 	//Webcall paramters.
 	var opt={
 		url : url,
-		method : "GET",
+		method : "POST",
 		charset : 'UTF-8',
 		contentType : 'text/xml',
 		body:xmlContent,
