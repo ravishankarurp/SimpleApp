@@ -44,31 +44,31 @@ function getFarenheitTemp(param,callback) {
 
 	console.log('debug 1.2');
 	
-	 //Feedhenry Web Call
-	// var res= $fh.web(opt
-	// 	, function(err, result) {
-	// 	  if (err) {
-	// 	    console.log("Error : " + err.message);
-	// 	  } else {
-	// 	    var data = result.body;
-	// 	    console.log("Response is " + data);
-	// 	  }
-	// 	});
+	 Feedhenry Web Call
+	var res= $fh.web(opt
+		, function(err, result) {
+		  if (err) {
+		    console.log("Error : " + err.message);
+		  } else {
+		    var data = result.body;
+		    console.log("Response is " + data);
+		  }
+		});
 	
-	$fh.web({
-	  url: "http://www.google.com",
-	  method: "GET",
-	  contentType: "text/html",
-	  charset: "UTF-8",
-	  period: 60000 //cache for 1 min
-	}, function(err, result) {
-	  if (err) {
-	    console.log("Error : " + err.message);
-	  } else {
-	    var data = result.body;
-	    console.log("Response is " + data);
-	  }
-	})
+	// $fh.web({
+	//   url: "http://www.google.com",
+	//   method: "GET",
+	//   contentType: "text/html",
+	//   charset: "UTF-8",
+	//   period: 60000 //cache for 1 min
+	// }, function(err, result) {
+	//   if (err) {
+	//     console.log("Error : " + err.message);
+	//   } else {
+	//     var data = result.body;
+	//     console.log("Response is " + data);
+	//   }
+	// })
 
 	console.log('debug 2 console');
 	// getSOAPElement will return an xml object that exists in SOAP response
