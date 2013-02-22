@@ -44,7 +44,7 @@ function getFarenheitTemp(param,callback) {
 
 	console.log('debug 1.2');
 	
-	 Feedhenry Web Call
+	// Feedhenry Web Call
 	var res= $fh.web(opt
 		, function(err, result) {
 		  if (err) {
