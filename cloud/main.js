@@ -33,7 +33,7 @@ function getFarenheitTemp(param,callback) {
 	'<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" >'+
   		'<SOAP-ENV:Body>'+
 			'<tns:CelsiusToFahrenheit xmlns:tns="http://tempuri.org/">' +
- 		   	'<tns:Celsius>44</tns:Celsius>' +
+ 		   	'<tns:Celsius>'+ param.tempInCelsius+'</tns:Celsius>' +
     		'</tns:CelsiusToFahrenheit>' +
 		'</SOAP-ENV:Body>' +
 	'</SOAP-ENV:Envelope>';
@@ -72,7 +72,7 @@ function getFarenheitTemp(param,callback) {
 				CelsiusToFahrenheitResult:xmlData.toString()
 			}
 		
-			console.log('debug 3 console');
+			console.log('debug 3 console. Returning ' + JSON.stringify(rtnObj));
 	
 			return callback(null, rtnObj);
 			
